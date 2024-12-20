@@ -16,7 +16,7 @@ stages:
     - metrics/train.json
     - models/iris_model.pkl
   evaluate:
-    cmd: python src/evaluate.py
+    cmd: python3.11 src/evaluate.py
     deps:
     - data/test.csv
     - models/iris_model.pkl
