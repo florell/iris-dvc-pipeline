@@ -6,15 +6,15 @@ stages:
     outs:
     - data/test.csv
     - data/train.csv
-  train_model:
+  train:
     cmd: python3.11 src/train.py
     deps:
-    - data/iris.csv
-    - params.yaml
-    - src/train.py
+    - data/train.csv
     outs:
-    - metrics/train.json
     - models/iris_model.pkl
+    metrics:
+    - metrics/train.json:
+        cache: false
   evaluate:
     cmd: python3.11 src/evaluate.py
     deps:

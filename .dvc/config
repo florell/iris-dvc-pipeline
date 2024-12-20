@@ -1,0 +1,6 @@
+[core]
+    remote = second_exp
+['remote "first_exp"']
+    url = ../origin/first_exp
+['remote "second_exp"']
+    url = ../origin/second_exp
