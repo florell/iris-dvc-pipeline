@@ -1,0 +1,22 @@
+stages:
+  preprocess:
+    cmd: python3.11 src/preprocess.py
+    deps:
+    - data/iris.csv
+    outs:
+    - data/test.csv
+    - data/train.csv
+  train_model:
+    cmd: python3.11 src/train.py
+    deps:
+    - data/iris.csv
+    - params.yaml
+    - src/train.py
+    outs:
+    - metrics/train.json
+    - models/iris_model.pkl
+  evaluate:
+    cmd: python src/evaluate.py
+    deps:
+    - data/test.csv
+    - models/iris_model.pkl
